@@ -23,6 +23,8 @@ def nova_matricula(cpf):
         reader = csv.DictReader(matriculacsv)
         for linha in reader:
             if linha['cpf'] == cpf:
+                return '<h2>Sua nova matrícula: ' + linha['matricula']\
+                + '</h2><br>(Cadastre-se <a href=http://sigaa.ifal.edu.br/sigaa/public/cadastro/discente.jsf>aqui</a>)'
                 return jsonify({"matricula":linha['matricula']})
     return not_found()
 
